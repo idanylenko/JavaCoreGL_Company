@@ -37,15 +37,16 @@ public class Company {
         long minSalary = 1000;
 
         if (salary < minSalary) {
-            System.out.println("Employee salary should be higher than 1000");
+            System.out.println("Operation failed. Employee salary should be higher than 1000");
             return;
         }
         Employee newEmployee = new Employee(name, phone, salary);
 
         int n = employees.length;
-        Employee[] moreEmployees = Arrays.copyOf(employees,(n+1));
+        Employee[] moreEmployees = Arrays.copyOf(employees, (n + 1));
         moreEmployees[n] = newEmployee;
         this.employees = moreEmployees;
+        System.out.println("Operation executed successfully");
     }
 
     public void fireEmployee(String name) {
@@ -58,10 +59,11 @@ public class Company {
             }
         }
 
-        System.arraycopy(employees,0,lessEmployees,0,indexOfFiredEmployee);
-        System.arraycopy(employees,indexOfFiredEmployee + 1,lessEmployees,indexOfFiredEmployee,employees.length - 1 - indexOfFiredEmployee);
+        System.arraycopy(employees, 0, lessEmployees, 0, indexOfFiredEmployee);
+        System.arraycopy(employees, indexOfFiredEmployee + 1, lessEmployees, indexOfFiredEmployee, employees.length - 1 - indexOfFiredEmployee);
 
         this.employees = lessEmployees;
+        System.out.println("Operation executed successfully");
     }
 
     public void printSalaryExpenses() {
